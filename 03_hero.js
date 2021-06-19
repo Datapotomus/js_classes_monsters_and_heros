@@ -36,7 +36,55 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+    class LivingThing {
+        constructor(name, health){
+            this.name = name;
+            this.health = health;
+        }
+        isAlive(){
+            if (this.health > 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 
+    class Hero extends LivingThing {
+        constructor(name, health){
+            super(name, health);
+        }
+        attack(livingThing){
+            let monsterDamage = getRandomInt(10)
+            let heroDamage  = getRandomInt(10)
+            livingThing.health -= monsterDamage
+            this.health -= heroDamage
+            console.log(`${livingThing.name} took ${monsterDamage}, and Hero took ${heroDamage}`);
+            console.log(`${livingThing.name}'s health is ${livingThing.health}, and Hero's health is ${this.health}`);
+        }
+        fight(monsters = []){
+            for (let monster of monsters) {
+                if (monster.isAlive()) {
+                    while (monster.isAlive() && this.isAlive()) {
+                        this.attack(monster)
+                    }
+                } else {
+                    console.log(`Monster is dead`)
+                }
+                // console.log(monster.name + " is " + (monster.isAlive() ? "alive" : "dead") );
+            }
+        }
+    }
+
+    let rat = new LivingThing("Rat", 5);
+    let goblin = new LivingThing("Goblin", 30);
+    let orge = new LivingThing("Ogre", 80)
+
+    let monsters = [rat, goblin, orge];
+    let hero = new Hero ("Matt", 100)
     
 
     //The code below should work when you are done
