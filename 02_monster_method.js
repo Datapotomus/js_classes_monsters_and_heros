@@ -11,7 +11,7 @@
 
     //@see https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it
     'use strict';
-
+ 
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
