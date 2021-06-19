@@ -15,7 +15,25 @@
     ///////////////////////////
     // Put your code here!
     ///////////////////////////
+    class LivingThing {
+        constructor(name, health){
+            this.name = name;
+            this.health = health;
+        }
+        isAlive(){
+            if (this.health > 0) {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
 
+    let rat = new LivingThing("Rat", 5);
+    let goblin = new LivingThing("Goblin", 30);
+    let orge = new LivingThing("Ogre", 80)
+
+    let monsters = [rat, goblin, orge];
     
     //The code below should work when you are done
     console.log("Are the monsters alive?");
